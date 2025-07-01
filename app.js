@@ -39,18 +39,6 @@ var log = require('./lib/Log'),
 //Express Server Object
 const app = Express();
 
-const validTokens = process.env.VALID_TOKENS
-  ? process.env.VALID_TOKENS.split(',')
-  : [];
-
-app.use((req, res, next) => {
-  const token = req.query.token || req.headers['authorization'];
-  if (!token || !validTokens.includes(token)) {
-    return res.status(403).send('Token is invalid');
-  }
-  next();
-});
-
 // Init token
 tokenMiddleware.initMiddleware();
 

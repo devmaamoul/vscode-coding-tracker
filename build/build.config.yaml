@@ -1,0 +1,46 @@
+name: VSCode Coding Tracker Server
+src:
+  base: frontend/src
+  assets: []
+  pages:
+    - "*.html"
+  scripts:
+    - "js/index.js"
+    - "js/polyfill.js"
+  styles:
+    - "sass/index.scss"
+dist:
+  base: frontend/dist
+  clean: true
+
+watch:
+  - "frontend/src"
+
+processor:
+  source_map:
+      enable: true
+      js: true
+      css: true
+  sass: true
+  less: true
+  autoprefixer: true
+  babel:
+    enable: true
+    babelrc: frontend/src/.babelrc
+  html_minifier:
+    enable: true
+    removeComments: true
+    collapseWhitespace: true
+  ejs: true
+  pug: true
+  browser_sync:
+    open: false
+    enable: true
+    proxy: 127.0.0.1:8765
+  ejs_variables:
+    enable: true
+    files:
+      - frontend/src/variables.yaml
+  ejs_template_tags:
+    enable: true
+    selector: script[type="text/template"]

@@ -1,0 +1,74 @@
+mixin chartBlock(id)
+	div(data-chart=id style="height: 250px")
+
+mixin totallyIndicator(id)
+	h6.card-subtitle.text-muted.mb-3.mt-1(id=id)
+		span(data-i18n="title_totally_1") Totally: watching for
+		span.mx-1(name="watching") ----
+		span.ml-2(data-i18n="title_totally_2") coding for
+		span.mx-1(name="coding") ----
+
+
+//====mixin==========
+//===========HTML====
+
+div.page-overview(style="display: none")
+	.row
+		.col-12
+			.card.my-2
+				.card-body
+					h4.card-title
+						span(data-i18n="title_summary") Coding activity
+						a#btnShareSummary.text-accent-color.ml-2.link-share(href="javascript:;")
+							span.ion-share
+					+totallyIndicator("counterSummary")
+					.card-text
+						+chartBlock("summary")
+	.row
+		.col-12
+			.card.my-2(style="height: 400px")
+				.card-body
+					h4.card-title(data-i18n="title_24hs") Recent 24 hours
+					+totallyIndicator("counterLast24Hs")
+					.card-text
+						+chartBlock("24hs")
+					a.card-link.float-right.link-full-report(href="javascript:;"
+						data-route="24hours")
+						span More 24 hours report
+						span.ion-more.ml-2
+	.row
+		.col-md-8
+			.card.my-2(style="height: 400px")
+				.card-body
+					h4.card-title(data-i18n="title_projects") Projects
+					h6.card-subtitle.text-muted.mb-2.mt-1(data-i18n="title_projects_tip")
+						| (click item in chart for details)
+					.card-text
+						+chartBlock("projects")
+					a.card-link.float-right.link-full-report(href="javascript:;"
+						data-route="projects")
+						span Full report
+						span.ion-connection-bars.ml-2
+		.col-md-4
+			.card.my-2(style="height: 400px")
+				.card-body
+					h4.card-title(data-i18n="title_languages") Languages
+					.card-text
+						+chartBlock("languages")
+					a.card-link.float-right.link-full-report(href="javascript:;"
+						data-route="languages")
+						span Full report
+						span.ion-connection-bars.ml-2
+	.row
+		.col-md-8
+			.card.my-2
+				.card-body
+					h4.card-title(data-i18n="title_files") Files
+					.card-text
+						+chartBlock("files")
+		.col-md-4
+			.card.my-2
+				.card-body
+					h4.card-title(data-i18n="title_computers") Computers
+					.card-text
+						+chartBlock("computers")

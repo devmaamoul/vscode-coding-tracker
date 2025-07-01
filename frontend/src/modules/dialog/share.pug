@@ -1,0 +1,52 @@
+mixin chartBlock(id)
+	div(data-chart=id style="height: 300px")
+
+mixin formTitle(text, i18n)
+	p.text-muted.text-uppercase.mt-2.mb-1(data-i18n=i18n)= text
+
+mixin fontSizeInput(text, name)
+	.col-6.col-lg-12: .input-group.mt-1
+		.input-group-prepend
+			span.input-group-text(style="min-width: 60px")= text
+		input.form-control(type="number" name=name)
+		.d-none.d-md-block.input-group-append.hidden-xs
+			span.input-group-text px
+
+mixin markLineButton(_type)
+	button.text-capitalize.btn.btn-markline.btn-default.mx-1(type="button"
+	data-type=_type data-i18n="share_mark_line_"+_type)= _type
+
+#dlgShare.modal.fade
+	.modal-dialog.modal-lg
+		.modal-content
+			.modal-header
+				h4.modal-title(data-i18n="title_share") Share
+				button.close(type="button" data-dismiss="modal" aria-label="Close")
+					span(aria-hidden="true") &times;
+			.modal-body
+				.container-fluid
+					.row.mb-2
+						.col-lg-8
+							+formTitle("SHARE CONTENT", "share_content")
+							input.form-control(name="text" style="font-size: 24px")
+							textarea.form-control.text-muted.mt-2(name="subtext"
+							style="height: 98px; font-size: 18px; resize: none"
+							onkeydown="app.share.delayUpdate()")
+						.col-lg-4
+							+formTitle("FONT SIZE", "share_font_size")
+							.row
+								+fontSizeInput("Main", "fontSizeMain")
+								+fontSizeInput("Sub", "fontSizeSub")
+							+formTitle("MARK LINE", "share_mark_line")
+							+markLineButton("max")
+							+markLineButton("average")
+							+markLineButton("min")
+					.row: hr/
+					.row: .col-12
+						+chartBlock('share_summary')
+					.row: .col-xs-12
+						i.pull-right.text-muted(
+						data-i18n="share_tip") (Click item in the chart to add markpoint for share)
+					.row: .col-xs-12
+						button.btn-download.btn.btn-success.pull-right(
+						data-i18n="share_btn") Save share image

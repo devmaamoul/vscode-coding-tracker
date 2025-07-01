@@ -1,0 +1,44 @@
+include _report_range_dropdown_menu.pug
+
+#reportRangeDropdown.dropdown.mr-auto.d-none.d-md-block
+	a.btn.btn-outline-secondary.btn-block.dropdown-toggle(
+		href='javascript:;', data-toggle='dropdown',
+		aria-haspopup='true', aria-expanded='false')
+		i.ion.ion-calendar
+		| &nbsp;&nbsp;
+		b.current-range Recent 7 Days
+	+reportRangeDropdownMenu
+
+#sidebarNav.collapse
+	ul.nav.nav-pills.flex-column.nav-sidebar
+		li.nav-item
+			a.nav-link.active(href="#" data-route="overview")
+				i.ion.ion-connection-bars
+				| Overview
+	ul.nav.nav-pills.flex-column.nav-sidebar
+		li.nav-item
+			a.nav-link(href="#" data-route="24hours")
+				i.ion.ion-clock
+				| 24 Hours Report
+		li.nav-item
+			a.nav-link(href="#" data-route="projects")
+				i.ion.ion-folder
+				| Projects Report
+		li.nav-item
+			a.nav-link(href="#" data-route="languages")
+				i.ion.ion-code
+				| Languages Report
+		li.nav-item
+			a.nav-link(href="#" data-route="vcs")
+				i.ion.ion-network
+				| VCS Branches Report
+	ul.nav.nav-pills.flex-column.nav-sidebar
+		li.nav-item
+			a.btn-show-welcome.nav-link(href="javascript:;")
+				i.ion.ion-help
+				| Help
+	ul.nav.nav-pills.flex-column.nav-sidebar
+		li.nav-item
+			a.btn-new-report-ui.nav-link(href="/report-new")
+				i.ion.ion-erlenmeyer-flask
+				| New Report UI

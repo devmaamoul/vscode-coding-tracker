@@ -1,0 +1,66 @@
+mixin link2(link)
+	a(target="_blank" href=link)
+		block
+
+#welcomeInfo.jumbotron(style="display: none")
+	h1(data-i18n="title_welcome") 
+		| Welcome to report page
+	p.text-muted(data-i18n="welcome_subtitle") 
+		| This is report page of vscode coding tracker,
+		| you can get your coding activity report in this page.
+
+	p.mb-0
+		span.ion-information-circled.mr-1
+		span(data-i18n="welcome_intro") Intro:
+	dl.ml-3
+		dt Watching time
+		dd.ml-1(data-i18n="welcome_watching_time") 
+			| The time you watching in the VS Code (include coding time)
+		dt Coding time
+		dd.ml-1(data-i18n="welcome_coding_time") 
+			| The time you typing in the VS Code (On the other hand, it reflects how long you focus coding)
+
+	p.mb-0
+		span.ion-star.mr-1
+		span(data-i18n="welcome_tips") Tips:
+	dl.ml-3
+		dt(data-i18n="welcome_tips_click_hover_title") Click or hover on the chart
+		dd.ml-1(data-i18n="welcome_tips_click_hover") 
+			| Hover for detailed info. Click project bar for detailed report of a project
+		dt(data-i18n="welcome_tips_language_title") Change languages
+		dd.ml-1 
+			span(data-i18n="welcome_tips_language") 
+				| Select languages in the top of page nearby icon: 
+			span.ion-earth.mr-1
+			| Include: Russian, 中文(简/繁) 
+
+	p.mb-0
+		span.ion-edit.mr-1
+		span(data-i18n="welcome_contribution") 
+			| Contribution:
+	span.ml-3.mb-3.d-inline-block
+		span(data-i18n="welcome_contribution_1")
+			| If you have any proposal or found any bug in this project. Please commit 
+		+link2("https://github.com/hangxingliu/vscode-coding-tracker-server/issues") issues 
+		span(data-i18n="welcome_contribution_2")
+			| or give me 
+		+link2("https://github.com/hangxingliu/vscode-coding-tracker-server/pulls") pull request 
+		br/ 
+		| I welcome translations to this page into other languages. 
+		| And solve the language expression fault in the page.
+		br/
+		i 
+			| (About contributing included translation, you can referer  
+			a(href="https://github.com/hangxingliu/vscode-coding-tracker-server/blob/master/CONTRIBUTING.md" target="_blank") 
+				| CONTRIBUTING.md 
+			| )
+	br/
+	div.clearfix
+		button.btn.btn-success.btn-hide-welcome.btn-lg.float-left(
+		style="margin: 20px 10px -46px 0")
+			span.ion-checkmark.mr-1
+			span(data-i18n="welcome_btn_close")
+				| OK. Hide this information
+		span.text-muted.float-left(style="margin-top: 46px")
+			span(data-i18n="welcome_reopen")
+				| You can reopen this welcome information by clicking "<u>welcome info</u>" in the bottom of page.

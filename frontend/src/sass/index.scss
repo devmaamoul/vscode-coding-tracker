@@ -1,0 +1,58 @@
+@import './_size.scss';
+@import './_color.scss';
+
+@import './_top_navbar.scss';
+@import './_sidebar.scss';
+@import './_dialog_custom_range.scss';
+@import './_dialog_24hs_from.scss';
+
+#bottomContainer h2 { margin-bottom: 5px; }
+#version {
+	dt {display: inline-block; min-width: 150px;}
+	dd {display: inline-block; }
+}
+
+//fix modal scroll gap white bug
+body.modal-open {
+	padding-right: 0 !important;
+}
+
+.modal-container .modal-dialog {
+	margin-top: 5rem;
+	@include lessThanMedium {
+		margin-top: 8rem;
+	}
+}
+
+.link-share {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.link-full-report {
+	position: absolute;
+	right: 25px;
+	bottom: 15px;
+}
+
+.layout-content {
+	.body-include-welcome{
+		@media (min-width: 768px) {
+			min-height: 50vh;
+		}
+	}
+}
+
+@media (min-width: 1500px) {
+	$left: 13%;
+	$right: 100% - $left;
+	.layout-sidebar {
+		max-width: $left;
+		flex: 0 0 $left;
+	}
+	.layout-content {
+		max-width: $right;
+		flex: 0 0 $right;	
+	}
+}

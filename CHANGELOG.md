@@ -1,102 +1,75 @@
 # CHANGELOG
 
-### 0.6.0 (2018/03/24)
+### 0.6.1 (2018/xx/xx) **Developing on**
 
-1. Upgrade server program (report page) to 0.6.0
-	- export/download report as CSV
-	- merge report from different projects
-	- fix some bug on report page
-	- more compatible with old browsers and mobile browsers
-2. Optimize for some vscode internal documents. (*Default settings, markdown preview, interactive playground*)
-3. Add Español translations into extension.
+1. add group by directory for files in project (**Working...**)
 
-### 0.5.0
+### 0.6.0 (2018/03/23)
 
-0. Support multi-root workspace.
-1. Add VCS(Git) repository and branch information tracking
-2. Add document line counts tracking
-3. Upgrade uploading protocol version to 4.0
-4. Optimize codes 
+0. Support exporting/downloading report data as CSV format.
+1. Support adding association for projects (So you can merge report from different projects).
+2. Fix incorrect 24 hours report.
+3. Fix some wrong i18n on the UI.
+4. More compatible with old browsers and mobile browsers.
 
-### 0.4.2
+### 0.5.0 (2017/11/26)
 
-0. Add configuration `showStatus` to controlling visibility of status bar information
+0. Support collect and report version control system(Git) activities.
+1. More report charts. Better i18n, date format and time format.
+2. Custom report date range. Custom start time for 24hours report.
+3. New report page using Bootstrap4 with multiple child report pages.
+4. Upgrade upload and storage protocol to 4.0. Improve storage action.
+5. Breaking change in frontend structure (charts, i18n, routes, ui, utils ...).
 
-### 0.4.1
+### 0.4.1 (2017/07/19)
 
-0. Add Russian translations. (Include report page) (Thank [Dolgishev Viktor (@vdolgishev)][vdolgishev])
-1. Update server program to 0.4.1 (**Fixed fatal bug**)
+0. add Russian translation (Thank [Dolgishev Viktor (@vdolgishev)][vdolgishev])
+1. fix a fatal bug (Storing data file without version in first line)
+2. fix a small bug about default language item. and some wrong spelling in codes.
 
 ### 0.4.0
 
-0. Fixed the bug "could not upload error" caused by switching VSCode windows
-1. New report page (support i18n, detailed report, share ...) (vscode-coding-tracker-server => 0.4.0)
-2. Add configuration "moreThinkingTime". Adjust it to make report more accurate for your coding habits
-
-### 0.3.2
-
-0. more precise in VSCode 1.9.0 (I am crashing because too many things are changed since VSCode 1.9.0)
+0. full projects and languages report
+1. detailed report of specified project (each day coding times and echo file coding times)
+2. i18n support (English, 简体中文, 繁體中文)(And waiting for your translation)
+3. add startup welcome/help info
+4. support share now (you can share your coding activities as chart image with your friend)
+5. optimized loading dialog, chart, tooltip of chart and frontend codes (include new builder scripts) display
 
 ### 0.3.1
 
-0. **fixed the local server severe bug.**
-**(because vscode install extension would not resolve dependencies and I forgot a dependency)**
-1. fixed the wrong coding time record because some feature since VSCode 1.9.0 
-2. fixed could not upload tracking data in non-project context since VSCode 1.9.0
-3. remove some redundant git merge files 
+1. Added total time display in report page
+2. Fixed mark point (maximum time) could not fully show. (add more padding to chart)
 
 ### 0.3.0
 
-0. **Added local server mode. So you could use this extension easily.**
-1. Added i18n support(supported language: en, zh-cn, zh-tw)
-2. Modified status bar module to show more information(local server sign, tooltip and changed icon)
-3. Added Output channel module to output local server log
-
-### 0.2.2
-
-0. Fixed `npm start` occurs error in Windows.
+1. Added two API(`ajax/kill` and `ajax/test`)
+2. Added unit test (And automatic test before commit) and eslint support
+	- Install git client test before commit hook by using `npm install-git-hooks`
+3. Supported 403, 404 and 500 HTTP status code to special response
+4. Removed low version upload data support.
+	- although there are not support for low version upload data anytime. 
+	- but uploading an old version data will get a error JSON object in this version. 
+5. Show is this server run under local mode in welcome JSON information.
 
 ### 0.2.0
 
-0. Be sure to upgrade again, because accuracy of tracker has be improve
-1. Separated the server side codes to other repository(but add this server side module to npm package dependencies.
-So you can find server side codes under node_modules)
-2. Ignored tracking invalid document times
-3. Added listening onDidChangeTextEditorSelection event to improve accuracy
-4. Tidied extension.js codes
-
-### 0.1.5 
-
-0. Be sure to upgrade, reason be following 
-1. Fixed two severe bugs. So you will get your right coding and watching time
-
-### 0.1.4
-
-0. Add computer Id to tracking data(You can specify your Id by set up vscode config
- `codingTracker.computerId` )
-1. Fixed some spelling mistake in the code and change some comment from Chinese to English
-2. Change tracking data time format from datetime format string to timestamp
-3. Please upgrade your server program to at least 1.3.0 to support receive tracking data 
- and storage data in version 3.0  
+1. **Added beta version report web page** and analyze cli tools
+2. Added local mode, random token and public report options
+2. Allowed api/upload token passing by query string, such as `/ajax/report/last24hs?token=${YOUR_TOKEN}`
+3. Added more debug output in debug mode
 
 ### 0.1.3
 
-0. Modified the log module, removed export log object to global variable "Log" (because sometimes it lead to a vscode exception)
+1. Upgraded storage database file version from 2.0 to 3.0
+2. Added two useful utilities (cleaner and updater)
+3. Supported 3.0 upload format included upload computer ID
+4. Fixed some bug
 
-### 0.1.2
+### Older version
 
-0. Fixed a bug around node module require in Linux must care about character case.
+Because this repository be separated from
+ [original extension repository](https://github.com/hangxingliu/vscode-coding-tracker),
+ so older version information you could find in that repository CHANGELOG or commit information.
 
-### 0.1.1
-
-0. Change folder and project structure to adapt npm and vscode extension
-
-### 0.1.0
-
-0. Add an icon to extension
-1. **Fixed the severe bug** (could not to use this extension because dependencies list is incomplete)
-2. Optimized tracking data upload.
-3. Support upload configurations take effect after change configurations in settings.json without restart VSCode
-4. Upgrade upload object structure version and storage version to 2.0,   
-remove unnecessary field and change a time(date) field format to avoid time difference between server and client.
-5. Optimized the server script performance and structure.
+ [vdolgishev]: https://github.com/vdolgishev

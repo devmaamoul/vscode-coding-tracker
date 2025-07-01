@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: vscode-coding-tracker-server
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node app.js
+    ports:
+      - 10345
+    envVars:
+      - key: NODE_VERSION
+        value: 14.x
+      - key: ADMIN_TOKENS
+        value: "admin-token-123"
+      - key: UPLOAD_TOKENS
+        value: "employee-token-1,employee-token-2,employee-token-3"
+      - key: VIEW_REPORT_TOKENS
+        value: ""
+
+

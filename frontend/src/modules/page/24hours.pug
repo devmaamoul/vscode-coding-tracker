@@ -1,0 +1,52 @@
+mixin chartBlock250px(id)
+	div(data-chart=id style="height: 250px")
+mixin chartBlock(id)
+	div(data-chart=id)
+
+mixin totallyIndicator(id)
+	h6.card-subtitle.text-muted.mb-3.mt-1(id=id)
+		span(data-i18n="title_totally_1") Totally: watching for
+		span.mx-1(name="watching") ----
+		span.ml-2(data-i18n="title_totally_2") coding for
+		span.mx-1(name="coding") ----
+
+
+//====mixin==========
+//===========HTML====
+
+div.page-24hours(style="display: none")
+	.row
+		.col-12
+			.card.my-2
+				.card-body
+					h4.card-title
+						i.ion-clock.mr-2
+						span(data-i18n="title_24hs") 24 hours
+						| &nbsp;from&nbsp;
+						b: a.filter-24hs.text-info(href="javascript:;")
+							span.txt 11-14 19:00
+							i.ml-2.ion-arrow-down-b
+					+totallyIndicator("counterCustom24Hs")
+					.card-text
+						+chartBlock250px("24hs")
+	.row
+		.col-12.col-lg-6
+			.card.my-2
+				.card-body
+					h4.card-title
+						i.ion-folder.mr-2
+						span(data-i18n="title_projects") Projects
+						| :
+					.card-text
+						+chartBlock("projects")
+		.col-12.col-lg-6
+			.card.my-2
+				.card-body
+					h4.card-title
+						i.ion-document.mr-2
+						span(data-i18n="title_files") Files
+						| (
+						span(data-i18n="word_top")
+						| 10):
+					.card-text
+						+chartBlock("files")

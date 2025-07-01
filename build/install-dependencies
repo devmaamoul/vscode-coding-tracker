@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+echo "Installing frontend dependencies ..."
+npm i --save-dev\
+	bootstrap@4.0.0-beta.2\
+	jquery@3.2.1\
+	echarts@3.7.2\
+	popper.js@1.12.6\
+	ionicons@2.0.1
+
+echo "Installing builder script dependencies ..."
+npm i --save-dev\
+	async colors fs-extra commander glob\
+	ejs pug \
+	js-yaml\
+	browserify babel-core\
+	node-sass autoprefixer postcss\
+	cheerio html-minifier\
+	convert-source-map\
+	watch\
+	babel-preset-es2015\
+	babel-preset-es2017\
+	babel-plugin-minify-mangle-names\
+	babel-plugin-transform-merge-sibling-variables
+
+	
